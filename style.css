@@ -1,0 +1,151 @@
+/* STEP 1: ADD THIS AT THE VERY TOP
+  This defines your downloaded font.
+*/
+@font-face {
+  font-family: 'jcap'; /* This is a name YOU invent */
+  
+  /* !!! IMPORTANT !!!
+     Change 'My-Birthday-Font.ttf' to the *exact* file name
+     of your decorative birthday font.
+  */
+  src: url('fonts/jcap.ttf') format('truetype');
+  
+  /* If your font is a .ttf file, use this line instead:
+    src: url('fonts/My-Birthday-Font.ttf') format('truetype');
+  */
+}
+
+
+/* STEP 2: ADD THIS RULE
+  This tells the browser to use your new font
+  ONLY for elements with the "font-display" class.
+*/
+.font-display {
+  /* This name MUST match the font-family you invented above */
+  font-family: 'jcap', cursive;
+}
+
+
+/* ALL YOUR OTHER CSS COMES AFTER THIS
+  (e.g., your #bg-3d, .glass-nav styles, etc.)
+*/
+/*
+  STEP 3: DEFINE FONT B (YOUR NEW BODY FONT)
+  We are adding a NEW rule for your second font.
+  We are creating a "font name" called 'MyBodyFont(Fragmentcore)'.
+*/
+@font-face {
+  font-family: 'Fragmentcore'; /* You invent this name */
+  
+  /* !!! IMPORTANT !!!
+     Change 'MyBodyFont.ttf' to the *exact* file name
+     of your simple, readable body font.
+  */
+  src: url('fonts/Fragmentcore.ttf') format('truetype');
+}/*
+  STEP 4: TELL THE 'body' (EVERYTHING ELSE) TO USE FONT B
+  This is the main logic. We are setting the
+  DEFAULT font for the entire page to be your new 'MyBodyFont(Fragmentcore)'.
+*/
+body {
+  /* This is the change! 
+     We are using the 'MyBodyFont' you defined in Step 2.
+  */
+  font-family: 'Fragmentcore', sans-serif;
+  
+  /* These other styles are fine. */
+  background-color: #fdf2f8; 
+  color: #1f2f37; 
+  overflow-x: hidden;
+  font-size: 25px;
+}
+
+
+/*
+  WHY THIS WORKS:
+  1. The 'body' rule makes ALL text on the page use 'MyBodyFont(Fragmentcore)'.
+  2. BUT, the '.font-display' rule (which is more specific) OVERRIDES
+     the body font and uses 'jcap' *only* for the elements
+     you gave that class to (i.e., "HAPPY BIRTHDAY!").
+  3. This also works for Quest 1, because in your HTML on Line 82,
+     you *also* override the body with an inline style
+     (style="font-family: 'Inter', sans-serif;").
+  This is a perfect setup.
+*/
+
+
+/* --- Styles for Quest 1 (Puzzle) --- */
+.font-cursive {
+    font-family: 'Pacifico', cursive;
+}
+
+/* Add shake animation for wrong guess */
+@keyframes shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+}
+.animate-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* --- Styles for Quest 3 (Scrolling Site) --- */
+
+/* Base styles for Quest 3 */
+.quest-3-body {
+    font-family: 'Fragmentcore', sans-serif;
+    background-color: #fdf2f8; /* Light pink (rose-50) */
+    color: #1f2937; /* Dark gray (gray-900) */
+    /* Lenis requires this */
+    overflow-x: hidden;
+}
+
+/* This canvas is the 3D background */
+#bg-3d {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; /* Sits behind all content */
+    opacity: 0.5;
+}
+
+/* Wrapper for all scrollable content */
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    /* This is crucial for Lenis to work correctly */
+    overflow: visible; 
+}
+
+/* Gradient text effect - Birthday theme! */
+.text-gradient {
+    background: linear-gradient(to right, #ec4899, #f59e0b); /* Pink to Orange */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism effect for the navbar - light theme */
+.glass-nav {
+     background: rgba(255, 255, 255, 0.6); /* Semi-transparent white bg */
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Styles for scroll-reveal animations */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
