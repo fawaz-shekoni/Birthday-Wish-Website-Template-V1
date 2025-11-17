@@ -1,17 +1,49 @@
 // --- SCRIPT FOR QUEST 3 ---
 
 // This function will initialize all the JS for the scrolling site
-function startQuest3() {
-    /* --- This is the new code for the menu button --- */
+function startQuest3() {    /* --- This is the new code for the menu button --- */
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    if (menuButton && mobileMenu) {
-      menuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-    /* --- End of new code --- */
+    // Function to update the menu button icon
+    function updateMenuButtonIcon(isOpen) {
+      if (isOpen) {
+        // X icon
+        menuButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        `;
+      } else {
+        // Hamburger icon
+        menuButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        `;
+      }
+    }
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('menu-open');
+        mobileMenu.classList.toggle('menu-open');
+        updateMenuButtonIcon(!isOpen);
+      });
+
+      // Close mobile menu when any navigation link is clicked
+      const mobileMenuLinks = mobileMenu.querySelectorAll('a[href^="#"]');
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('menu-open');
+          updateMenuButtonIcon(false);
+        });
+      });
+    }
+    /* --- End of new code --- */
 
     // --- 1. LENIS SMOOTH SCROLL SETUP ---
     const lenis = new Lenis();

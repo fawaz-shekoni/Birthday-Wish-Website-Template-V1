@@ -131,7 +131,7 @@ body {
 
 /* Glassmorphism effect for the navbar - light theme */
 .glass-nav {
-     background: rgba(255, 255, 255, 0.6); /* Semi-transparent white bg */
+     background: rgba(255, 255, 255); /* Semi-transparent white bg */
      backdrop-filter: blur(10px);
      -webkit-backdrop-filter: blur(10px);
      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -148,4 +148,28 @@ body {
 .reveal-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Mobile menu transition styles */
+#mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+#mobile-menu.menu-open {
+    max-height: 300px; /* Adjust based on content */
+    opacity: 1;
+}
+
+/* Smooth height transition alternative using transform */
+.mobile-menu-transition {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-transition.menu-open {
+    transform: scaleY(1);
 }

@@ -1,27 +1,30 @@
-<!DOCTYPE html>
-My wish<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html> My wish
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Birthday!</title>
-    
+
     <!-- 1. Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- 2. Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Fonts for Quest 1 (Puzzle) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Pacifico&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- 3. Three.js (for 3D) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
+
     <!-- 4. Lenis (for Smooth Scroll) -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    
+
     <!-- 5. Link to your new CSS file -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <!-- 
       This inline script is for Tailwind CSS configuration. 
@@ -29,318 +32,505 @@ My wish<html lang="en">
       It's best to keep this here so the Tailwind CDN can use it.
     -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        cursive: ['Pacifico', 'cursive'],
-                        poppins: ['Poppins', 'sans-serif'] // Add poppins
-                    },
-                    colors: {
-                        'brand-pink': {
-                            light: '#fce7f3', // pink-100
-                            DEFAULT: '#ec4899', // pink-500
-                            dark: '#be185d', // pink-700
-                        },
-                        'brand-purple': {
-                            light: '#f5f3ff', // violet-50
-                            DEFAULT: '#8b5cf6', // violet-500
-                            dark: '#6d28d9', // violet-700
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'fade-in': 'fadeIn 1s ease-out',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(-3%)' },
-                            '50%': { transform: 'translateY(3%)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              cursive: ["Pacifico", "cursive"],
+              poppins: ["Poppins", "sans-serif"], // Add poppins
+            },
+            colors: {
+              "brand-pink": {
+                light: "#fce7f3", // pink-100
+                DEFAULT: "#ec4899", // pink-500
+                dark: "#be185d", // pink-700
+              },
+              "brand-purple": {
+                light: "#f5f3ff", // violet-50
+                DEFAULT: "#8b5cf6", // violet-500
+                dark: "#6d28d9", // violet-700
+              },
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "fade-in": "fadeIn 1s ease-out",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(-3%)" },
+                "50%": { transform: "translateY(3%)" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0", transform: "translateY(10px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="antialiased">
-    
+  </head>
+  <body class="antialiased">
     <!-- --- QUEST 1: PUZZLE CARD --- -->
-    <div id="quest-1-wrapper" class="text-brand-pink-dark min-h-screen flex items-center justify-center p-4" style="font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);">
+    <div
+      id="quest-1-wrapper"
+      class="text-brand-pink-dark min-h-screen flex items-center justify-center p-4"
+      style="
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+      "
+    >
+      <div
+        class="w-full max-w-md mx-auto bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8 text-center overflow-hidden relative"
+      >
+        <!-- Background decorative elements -->
+        <div
+          class="absolute -top-16 -left-16 w-48 h-48 bg-brand-pink-light/50 rounded-full animate-float opacity-50"
+        ></div>
+        <div
+          class="absolute -bottom-20 -right-10 w-56 h-56 bg-brand-purple-light/50 rounded-full animate-float [animation-delay:-3s] opacity-50"
+        ></div>
 
-        <div class="w-full max-w-md mx-auto bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8 text-center overflow-hidden relative">
-            <!-- Background decorative elements -->
-            <div class="absolute -top-16 -left-16 w-48 h-48 bg-brand-pink-light/50 rounded-full animate-float opacity-50"></div>
-            <div class="absolute -bottom-20 -right-10 w-56 h-56 bg-brand-purple-light/50 rounded-full animate-float [animation-delay:-3s] opacity-50"></div>
-            
-            <!-- Puzzle Box -->
-            <div id="puzzle-box" class="relative z-10">
-                <!-- Header Title -->
-                <h1 class="font-cursive text-5xl md:text-6xl text-brand-pink-dark mb-4">
-                    Happy Birthday!
-                </h1>
-                <p class="text-lg text-brand-pink-dark mb-6">A little mystery just for you...</p>
+        <!-- Puzzle Box -->
+        <div id="puzzle-box" class="relative z-10">
+          <!-- Header Title -->
+          <h1
+            class="font-cursive text-5xl md:text-6xl text-brand-pink-dark mb-4"
+          >
+            Happy Birthday!
+          </h1>
+          <p class="text-lg text-brand-pink-dark mb-6">
+            A little mystery just for you...
+          </p>
 
-                <!-- Clue Grid -->
-                <div class="grid grid-cols-3 gap-4 mb-6">
-                    <!-- Clue 1: Gift -->
-                    <div class="clue-item" data-clue="1">🎁</div>
-                    <!-- Clue 2: Balloon -->
-                    <div class="clue-item" data-clue="2">🎈</div>
-                    <!-- Clue 3: Question -->
-                    <div class="clue-item" data-clue="3">❓</div>
-                    <!-- Clue 4: Lightbulb -->
-                    <div class="clue-item" data-clue="4">💡</div>
-                    <!-- Clue 5: Magnifier -->
-                    <div class="clue-item" data-clue="5">🔍</div>
-                    <!-- Clue 6: Cake -->
-                    <div class="clue-item" data-clue="6">🎂</div>
-                </div>
-                
-                <!-- Hint Text -->
-                <p class="text-lg text-brand-pink-dark font-semibold mb-4">
-                    Hint: Look for the clues to find the 6-letter code!
-                </p>
+          <!-- Clue Grid -->
+          <div class="grid grid-cols-3 gap-4 mb-6">
+            <!-- Clue 1: Gift -->
+            <div class="clue-item" data-clue="1">🎁</div>
+            <!-- Clue 2: Balloon -->
+            <div class="clue-item" data-clue="2">🎈</div>
+            <!-- Clue 3: Question -->
+            <div class="clue-item" data-clue="3">❓</div>
+            <!-- Clue 4: Lightbulb -->
+            <div class="clue-item" data-clue="4">💡</div>
+            <!-- Clue 5: Magnifier -->
+            <div class="clue-item" data-clue="5">🔍</div>
+            <!-- Clue 6: Cake -->
+            <div class="clue-item" data-clue="6">🎂</div>
+          </div>
 
-                <!-- Input Form -->
-                <form id="codeForm" class="flex flex-col gap-3">
-                    <input 
-                        type="text" 
-                        id="codeInput"
-                        placeholder="Enter the code"
-                        class="w-full px-4 py-3 border-2 border-brand-pink-light rounded-xl text-center text-lg text-brand-pink-dark placeholder-brand-pink-dark/50 focus:outline-none focus:ring-2 focus:ring-brand-pink focus:border-transparent transition"
-                        maxlength="6"
-                        autocomplete="off"
-                        autocapitalize="characters"
-                    >
-                    <button 
-                        type="submit"
-                        class="w-full px-4 py-3 bg-brand-pink text-white font-bold rounded-xl text-lg hover:bg-brand-pink-dark shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
-                    >
-                        Submit
-                    </button>
-                </form>
+          <!-- Hint Text -->
+          <p class="text-lg text-brand-pink-dark font-semibold mb-4">
+            Hint: Look for the clues to find the 6-letter code!
+          </p>
 
-                <!-- Message Area -->
-                <div id="messageArea" class="mt-4 text-lg font-semibold h-6"></div>
-            </div>
+          <!-- Input Form -->
+          <form id="codeForm" class="flex flex-col gap-3">
+            <input
+              type="text"
+              id="codeInput"
+              placeholder="Enter the code"
+              class="w-full px-4 py-3 border-2 border-brand-pink-light rounded-xl text-center text-lg text-brand-pink-dark placeholder-brand-pink-dark/50 focus:outline-none focus:ring-2 focus:ring-brand-pink focus:border-transparent transition"
+              maxlength="6"
+              autocomplete="off"
+              autocapitalize="characters"
+            />
+            <button
+              type="submit"
+              class="w-full px-4 py-3 bg-brand-pink text-white font-bold rounded-xl text-lg hover:bg-brand-pink-dark shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+            >
+              Submit
+            </button>
+          </form>
 
-            <!-- Quest Page 2 (Key) - This is no longer used, but kept for reference -->
-            <div id="quest-page-2" class="hidden relative z-10 p-6 flex-col items-center justify-center animate-fade-in">
-                <h2 class="font-cursive text-5xl md:text-6xl text-brand-pink-dark mb-4">
-                    Quest 2
-                </h2>
-                <p class="text-2xl text-brand-pink-dark mb-6">You've unlocked the next challenge!</p>
-                <div class="text-8xl mb-6 animate-pulse-slow">🗝️</div>
-                <p class="text-lg text-brand-pink-dark mb-2">What adventure awaits...?</p>
-            </div>
+          <!-- Message Area -->
+          <div id="messageArea" class="mt-4 text-lg font-semibold h-6"></div>
         </div>
 
-        <!-- Clue Modal -->
-        <div id="clueModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none z-50">
-            <div id="modalContent" class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-sm w-full text-center relative transition-transform duration-300 transform scale-95">
-                <button id="closeModal" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-                <h3 class="text-2xl font-bold text-brand-purple-dark mb-4">Clue</h3>
-                <p id="clueText" class="text-xl text-gray-700"></p>
-            </div>
+        <!-- Quest Page 2 (Key) - This is no longer used, but kept for reference -->
+        <div
+          id="quest-page-2"
+          class="hidden relative z-10 p-6 flex-col items-center justify-center animate-fade-in"
+        >
+          <h2
+            class="font-cursive text-5xl md:text-6xl text-brand-pink-dark mb-4"
+          >
+            Quest 2
+          </h2>
+          <p class="text-2xl text-brand-pink-dark mb-6">
+            You've unlocked the next challenge!
+          </p>
+          <div class="text-8xl mb-6 animate-pulse-slow">🗝️</div>
+          <p class="text-lg text-brand-pink-dark mb-2">
+            What adventure awaits...?
+          </p>
         </div>
+      </div>
 
-        <!-- New Congrats Modal -->
-        <div id="congratsModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none z-50">
-            <div id="congratsModalContent" class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-sm w-full text-center relative transition-transform duration-300 transform scale-95">
-                <div class="text-8xl mb-6 animate-pulse-slow">💖</div>
-                <h3 class="text-2xl font-bold text-brand-purple-dark mb-4">That's Smart of you, my love,</h3>
-                <button id="continueButton" class="w-full mt-6 px-4 py-3 bg-brand-pink text-white font-bold rounded-xl text-lg hover:bg-brand-pink-dark shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-                    Continue
-                </button>
-            </div>
+      <!-- Clue Modal -->
+      <div
+        id="clueModal"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none z-50"
+      >
+        <div
+          id="modalContent"
+          class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-sm w-full text-center relative transition-transform duration-300 transform scale-95"
+        >
+          <button
+            id="closeModal"
+            class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <h3 class="text-2xl font-bold text-brand-purple-dark mb-4">Clue</h3>
+          <p id="clueText" class="text-xl text-gray-700"></p>
         </div>
-    </div> <!-- End #quest-1-wrapper -->
+      </div>
 
+      <!-- New Congrats Modal -->
+      <div
+        id="congratsModal"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none z-50"
+      >
+        <div
+          id="congratsModalContent"
+          class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-sm w-full text-center relative transition-transform duration-300 transform scale-95"
+        >
+          <div class="text-8xl mb-6 animate-pulse-slow">💖</div>
+          <h3 class="text-2xl font-bold text-brand-purple-dark mb-4">
+            That's Smart of you, my love,
+          </h3>
+          <button
+            id="continueButton"
+            class="w-full mt-6 px-4 py-3 bg-brand-pink text-white font-bold rounded-xl text-lg hover:bg-brand-pink-dark shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            Continue
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- End #quest-1-wrapper -->
 
     <!-- --- QUEST 3: SCROLLING WEBSITE (Hidden by default) --- -->
     <div id="quest-3-wrapper" class="hidden">
-        <!-- Canvas element for the Three.js 3D model -->
-        <canvas id="bg-3d"></canvas>
+      <!-- Canvas element for the Three.js 3D model -->
+      <canvas id="bg-3d"></canvas>
 
-        <!-- 
+      <!-- 
           This is the main content wrapper. 
           All page content goes inside here to scroll over the 3D background.
         -->
-        <div class="content-wrapper">
+      <div class="content-wrapper">
+        <!-- Header/Navbar -->
+        <header class="glass-nav fixed top-0 left-0 w-full z-50">
+          <nav
+            class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center"
+          >
+            <a
+              href="#home"
+              class="text-2xl font-bold text-pink-600 font-display shrink-0"
+            >
+              [A name]😉
+            </a>
+            <div
+              id="desktop-menu"
+              class="hidden items-center lg:flex flex-row gap-4"
+            >
+              <a
+                href="#home"
+                class="text-gray-700 hover:text-gray-900 transition-colors font-display"
+                >Home</a
+              >
+              <a
+                href="#story"
+                class="text-gray-700 hover:text-gray-900 transition-colors font-display"
+                >Our Story</a
+              >
+              <a
+                href="#gallery"
+                class="text-gray-700 hover:text-gray-900 transition-colors font-display"
+                >Gallery</a
+              >
+              <a
+                href="#wishes"
+                class="text-gray-700 hover:text-gray-900 transition-colors font-display"
+                >Wishes</a
+              >
+            </div>
+            <div
+              id="mobile-menu"
+              class="glass-nav lg:hidden w-full flex-col gap-4 items-start mt-16 pb-4 px-6 flex lg:flex-row absolute top-0 left-0 max-h-auto transition-all duration-1000 ease-in-out"
+            >
+              <a
+                href="#home"
+                class="text-gray-700 hover:text-gray-900 transition-colors font-display"
+                >Home</a
+              >
+              <a
+                href="#story"
+                class="text-gray-700 hover:text-gray-900 transition-colors font-display"
+                >Our Story</a
+              >
+              <a
+                href="#gallery"
+                class="text-gray-700 hover:text-gray-900 transition-colors font-display"
+                >Gallery</a
+              >
+              <a
+                href="#wishes"
+                class="text-gray-700 hover:text-gray-900 transition-colors font-display"
+                >Wishes</a
+              >
+            </div>
+            <a
+              href="#wishes"
+              class="shrink-0 hidden lg:flex bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 rounded-lg transition-colors font-display"
+            >
+              My Wish
+            </a>
+            <!-- Mobile menu button (simple) -->
+            <button id="mobile-menu-button" class="lg:hidden text-gray-900">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </nav>
+        </header>
 
-            <!-- Header/Navbar -->
-            <header class="glass-nav fixed top-0 left-0 w-full z-50">
-                <nav class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center flex-wrap">
-                    <a href="#home" class="text-2xl font-bold text-pink-600 font-display">
-                        [Your Name]😉
-                    </a>
-                    <div id="mobile-menu" class="hidden w-full flex-col items-center space-y-4 py-4 md:py-0 lg:flex lg:flex-row md:w-auto md:space-x-8 md:space-y-0">
-                        <a href="#home" class="text-gray-700 hover:text-gray-900 transition-colors font-display">Home</a>
-                        <a href="#story" class="text-gray-700 hover:text-gray-900 transition-colors font-display">Our Story</a>
-                        <a href="#gallery" class="text-gray-700 hover:text-gray-900 transition-colors font-display">Gallery</a>
-                        <a href="#wishes" class="text-gray-700 hover:text-gray-900 transition-colors font-display">Wishes</a>
-                    </div>
-                    <a href="#wishes" class="hidden lg:block bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 rounded-lg transition-colors font-display">
-                        My Wish
-                    </a>
-                    <!-- Mobile menu button (simple) -->
-                    <button id="mobile-menu-button" class="lg:hidden text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                    </button>
-                </nav>
-            </header>
+        <!-- Hero Section -->
+        <section
+          id="home"
+          class="h-screen min-h-[700px] flex items-center justify-center text-center relative px-6"
+        >
+          <div id="hero-text" class="relative z-10">
+            <h1
+              class="text-6xl md:text-8xl lg:text-9xl font-black mb-4 font-display"
+            >
+              <span class="text-gradient">HAPPY</span>
+            </h1>
+            <h2
+              class="text-6xl md:text-8xl lg:text-9xl font-black mb-8 text-gray-900 font-display"
+            >
+              BIRTHDAY!
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto">
+              <strong>My love</strong>, this day is all about you.
+            </p>
+          </div>
+        </section>
 
-            <!-- Hero Section -->
-            <section id="home" class="h-screen min-h-[700px] flex items-center justify-center text-center relative px-6">
-                <div id="hero-text" class="relative z-10">
-                    <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-4 font-display">
-                        <span class="text-gradient">HAPPY</span>
-                    </h1>
-                    <h2 class="text-6xl md:text-8xl lg:text-9xl font-black mb-8 text-gray-900 font-display">
-                        BIRTHDAY!
-                    </h2>
-                    <p class="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto">
-                        <strong>My love</strong>, this day is all about you.
-                    </p>
+        <!-- "Our Story" Section -->
+        <section
+          id="story"
+          class="py-24 md:py-32 bg-white relative reveal-on-scroll"
+        >
+          <div class="container mx-auto max-w-6xl px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-display">
+                  Here's to You...
+                </h2>
+                <p class="text-lg text-gray-700 mb-4">
+                  Happy Birthday to the woman who has my heart.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                  I created this little space to celebrate you and the little
+                  moments we've shared.Every moment is a better and beautiful
+                  adventure with you.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                  <strong>I love :</strong>
+                </p>
+              </div>
+              <!-- Fun Highlights -->
+              <div class="space-y-4">
+                <div class="bg-rose-100 p-4 rounded-lg">
+                  <span class="text-pink-600 font-semibold"
+                    >🌟 Your Amazing Laugh</span
+                  >
                 </div>
-            </section>
-
-            <!-- "Our Story" Section -->
-            <section id="story" class="py-24 md:py-32 bg-white relative reveal-on-scroll">
-                <div class="container mx-auto max-w-6xl px-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <h2 class="text-4xl md:text-5xl font-bold mb-6 font-display">
-                                Here's to You...
-                            </h2>
-                            <p class="text-lg text-gray-700 mb-4">
-                               Happy Birthday to the woman who has my heart.
-                            </p>
-                            <p class="text-lg text-gray-700 mb-6">
-                                I created this little space to celebrate you and the little moments we've shared.Every moment is a better and beautiful adventure with you.
-                            </p>
-                            <p class="text-lg text-gray-700 mb-6">
-                                <strong>I love </strong>
-                            </p>
-                        </div>
-                        <!-- Fun Highlights -->
-                        <div class="space-y-4">
-                            <div class="bg-rose-100 p-4 rounded-lg">
-                                <span class="text-pink-600 font-semibold">🌟 Your Amazing Laugh</span>
-                            </div>
-                            <div class="bg-rose-100 p-4 rounded-lg">
-                                <span class="text-pink-600 font-semibold">💖 Your Kind Heart</span>
-                            </div>
-                            <div class="bg-rose-100 p-4 rounded-lg">
-                                <span class="text-pink-600 font-semibold">🧠 Your Bright Mind</span>
-                            </div>
-                            <div class="bg-rose-100 p-4 rounded-lg">
-                                <span class="text-pink-600 font-semibold">✨ Your Thoughtful Nature</span>
-                            </div>
-                            <div class="bg-rose-100 p-4 rounded-lg">
-                                <span class="text-pink-600 font-semibold">...and so much more!</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-rose-100 p-4 rounded-lg">
+                  <span class="text-pink-600 font-semibold"
+                    >💖 Your Kind Heart</span
+                  >
                 </div>
-            </section>
-
-            <!-- "Gallery" Section -->
-            <section id="gallery" class="py-24 md:py-32 bg-rose-50 relative">
-                <div class="container mx-auto max-w-6xl px-6">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal-on-scroll font-display">
-                        A Look Back: <span class="text-gradient">Our Gallery</span>
-                    </h2>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <!-- Memory Card 1 -->
-                        <div class="bg-white rounded-xl overflow-hidden shadow-2xl reveal-on-scroll transition-all duration-300 hover:scale-[1.03]">
-                            <!-- Replace with your own image! -->
-                            <img src="assets/img1.jpg" alt="Memory 1" class="w-full h-100 object-cover">
-                            <div class="p-8">
-                                <h3 class="text-2xl font-bold mb-3">See us together!</h3>
-                                <p class="text-gray-700 mb-5">
-                                    We look so good together, don't we?, well.. more proper outings to come!
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <!-- Memory Card 2 -->
-                        <div class="bg-white rounded-xl overflow-hidden shadow-2xl reveal-on-scroll" style="transition-delay: 200ms;">
-                            <!-- Replace with your own image! -->
-                            <img src="assets/Img2.jpg" alt="Memory 2" class="w-full h-100 object-cover">
-                            <div class="p-8">
-                                <h3 class="text-2xl font-bold mb-3">I love this picture so much!</h3>
-                                <p class="text-gray-700 mb-5">
-                                    See how pretty you are? 😍
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Memory Card 3 -->
-                        <div class="bg-white rounded-xl overflow-hidden shadow-2xl reveal-on-scroll" style="transition-delay: 400ms;">
-                            <!-- Replace with your own image! -->
-                            <img src="https://placehold.co/600x400/fecdd3/a21caf?text=Silly+Moments" alt="Memory 3" class="w-full h-64 object-cover">
-                            <div class="p-8">
-                                <h3 class="text-2xl font-bold mb-3">Just Being Goofy</h3>
-                                <p class="text-gray-700 mb-5">
-                                    My favorite. We never fail to have fun.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-rose-100 p-4 rounded-lg">
+                  <span class="text-pink-600 font-semibold"
+                    >🧠 Your Bright Mind</span
+                  >
                 </div>
-            </section>
+                <div class="bg-rose-100 p-4 rounded-lg">
+                  <span class="text-pink-600 font-semibold"
+                    >✨ Your Thoughtful Nature</span
+                  >
+                </div>
+                <div class="bg-rose-100 p-4 rounded-lg">
+                  <span class="text-pink-600 font-semibold"
+                    >...and so much more!</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <!-- "Wishes" Section -->
-            <section id="wishes" class="py-24 md:py-32 bg-white relative">
-                <div class="container mx-auto max-w-3xl px-6 text-center">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6 reveal-on-scroll font-display">
-                        My <span class="text-gradient font-display">Birthday Wish</span> For You
-                    </h2>
-                    <p class="text-lg text-gray-700 mb-12 reveal-on-scroll" style="transition-delay: 200ms;">
-                        This is your personal digital birthday card. Here's my wish for your year ahead...
-                    </p>
-                    <!-- This is a "fake" form, as it doesn't send data. 
+        <!-- "Gallery" Section -->
+        <section id="gallery" class="py-24 md:py-32 bg-rose-50 relative">
+          <div class="container mx-auto max-w-6xl px-6">
+            <h2
+              class="text-4xl md:text-5xl font-bold text-center mb-16 reveal-on-scroll font-display"
+            >
+              A Look Back: <span class="text-gradient">Our Gallery</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <!-- Memory Card 1 -->
+              <div
+                class="bg-white rounded-xl overflow-hidden shadow-2xl reveal-on-scroll transition-all duration-300 hover:scale-[1.03]"
+              >
+                <!-- Replace with your own image! -->
+                <img
+                  src="assets/img1.jpg"
+                  alt="Memory 1"
+                  class="w-full h-100 object-cover"
+                />
+                <div class="p-8">
+                  <h3 class="text-2xl font-bold mb-3">See us together!</h3>
+                  <p class="text-gray-700 mb-5">
+                    We look so good together, don't we?, well.. more proper
+                    outings to come!
+                  </p>
+                </div>
+              </div>
+
+              <!-- Memory Card 2 -->
+              <div
+                class="bg-white rounded-xl overflow-hidden shadow-2xl reveal-on-scroll"
+                style="transition-delay: 200ms"
+              >
+                <!-- Replace with your own image! -->
+                <img
+                  src="assets/Img2.jpg"
+                  alt="Memory 2"
+                  class="w-full h-100 object-cover"
+                />
+                <div class="p-8">
+                  <h3 class="text-2xl font-bold mb-3">
+                    I love this picture so much!
+                  </h3>
+                  <p class="text-gray-700 mb-5">See how pretty you are? 😍</p>
+                </div>
+              </div>
+
+              <!-- Memory Card 3 -->
+              <div
+                class="bg-white rounded-xl overflow-hidden shadow-2xl reveal-on-scroll"
+                style="transition-delay: 400ms"
+              >
+                <!-- Replace with your own image! -->
+                <img
+                  src="https://placehold.co/600x400/fecdd3/a21caf?text=Silly+Moments"
+                  alt="Memory 3"
+                  class="w-full h-64 object-cover"
+                />
+                <div class="p-8">
+                  <h3 class="text-2xl font-bold mb-3">Just Being Goofy</h3>
+                  <p class="text-gray-700 mb-5">
+                    My favorite. We never fail to have fun.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- "Wishes" Section -->
+        <section id="wishes" class="py-24 md:py-32 bg-white relative">
+          <div class="container mx-auto max-w-3xl px-6 text-center">
+            <h2
+              class="text-4xl md:text-5xl font-bold mb-6 reveal-on-scroll font-display"
+            >
+              My
+              <span class="text-gradient font-display">Birthday Wish</span> For
+              You
+            </h2>
+            <p
+              class="text-lg text-gray-700 mb-12 reveal-on-scroll"
+              style="transition-delay: 200ms"
+            >
+              This is your personal digital birthday card. Here's my wish for
+              your year ahead...
+            </p>
+            <!-- This is a "fake" form, as it doesn't send data. 
                          It's styled to look like a personal message from you! -->
-                    <div class="space-y-6 reveal-on-scroll text-left p-8 bg-rose-50 rounded-lg shadow-inner" style="transition-delay: 400ms;">
-                        <div class="w-full bg-white text-gray-900 p-4 rounded-lg border border-rose-200">
-                            <strong>From:</strong> [Your Name]
-                        </div>
-                        <div class="w-full bg-white text-gray-900 p-4 rounded-lg border border-rose-200 min-h-[150px]">
-                            <strong>Message:</strong>
-                            <p class="mt-2">My wish for you is that this next year is even more amazing than the last. May all your dreams come true, may you always know how much you are loved, and may every day bring you as much happiness as you bring me. Happy Birthday once again, my love.</p>
-                            <p class="mt-2">All my love,</p>
-                            <p>[Your Name] ❤️</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div
+              class="space-y-6 reveal-on-scroll text-left p-8 bg-rose-50 rounded-lg shadow-inner"
+              style="transition-delay: 400ms"
+            >
+              <div
+                class="w-full bg-white text-gray-900 p-4 rounded-lg border border-rose-200"
+              >
+                <strong>From:</strong> [Name]
+              </div>
+              <div
+                class="w-full bg-white text-gray-900 p-4 rounded-lg border border-rose-200 min-h-[150px]"
+              >
+                <strong>Message:</strong>
+                <p class="mt-2">
+                  My wish for you is that this next year is even more amazing
+                  than the last. May all your dreams come true, may you always
+                  know how much you are loved, and may every day bring you as
+                  much happiness as you bring me. Happy Birthday once again, my
+                  love.
+                </p>
+                <p class="mt-2">All my love,</p>
+                <p>[Name] ❤️</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <!-- Footer -->
-            <footer class="py-12 bg-rose-100">
-                <div class="container mx-auto max-w-6xl px-6 text-center text-gray-600">
-                    <p>Made with ❤️ just for you</p>
-                </div>
-            </footer>
-
-        </div> <!-- End .content-wrapper -->
-    </div> <!-- End #quest-3-wrapper -->
-
+        <!-- Footer -->
+        <footer class="py-12 bg-rose-100">
+          <div
+            class="container mx-auto max-w-6xl px-6 text-center text-gray-600"
+          >
+            <p>Made with ❤️ just for you</p>
+          </div>
+        </footer>
+      </div>
+      <!-- End .content-wrapper -->
+    </div>
+    <!-- End #quest-3-wrapper -->
 
     <!-- Link to your new JavaScript file -->
     <script src="script.js"></script>
-
-</body>
+  </body>
 </html>
