@@ -213,14 +213,14 @@ scene.add(mesh);
 document.addEventListener('DOMContentLoaded', () => {
     // --- Clue Data ---
     const newClues = {
-        '1': "I'm the 1st letter of the place my hands naturally find when I hug you. (B)",
-        '2': "I'm the 1st letter of the sound you make when my hand slides down your waist  and finally lands where you want it. (U)",
-        '3': "I'm the 1st letter of what your smile turns 'ME' into every single time. (M)",
-        '4': "I'm the 1st letter of the part of you that distracts me every time you walk away. (B)",
-        '5': "I'm the 3rd letter in the third word of the sentence - I LOVE YOU. (U)",
-        '6': "I'm the 1st letter of what I turn into when we're alone and you're in the mood. (M)"
+        '1': "I'm the letter F (F)",
+        '2': "I'm the 1st letter L (L)",
+        '3': "I'm the 1st letter O (O)",
+        '4': "I'm the 1st letter W (W)",
+        '5': "I'm the 3rd letter E (E)",
+        '6': "I'm the 1st letter R (R)"
     };
-    const FINAL_CODE = "BUMBUM";
+    const FINAL_CODE = "FLOWER";
 
     // --- DOM Elements (Quest 1) ---
     const quest1Wrapper = document.getElementById('quest-1-wrapper');
