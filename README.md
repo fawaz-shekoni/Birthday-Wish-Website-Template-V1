@@ -1,6 +1,6 @@
 ---
 
-# 🎉 Birthday Wish Website Template — V1
+# 🎉 Birthday/Valentine Wish Website Template — V1
 
 A beautifully designed, interactive birthday-wish website template for anyone who wants to create something special and personalized for their partner, friend, or loved one.
 
