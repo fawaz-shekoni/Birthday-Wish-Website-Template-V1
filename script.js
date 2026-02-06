@@ -45,6 +45,26 @@ function startQuest3() {    /* --- This is the new code for the menu button --- 
     }
     /* --- End of new code --- */
 
+    /* --- This is the new code to FORCE the video to play --- */
+    // We wait a tiny bit for the page to fade in
+    setTimeout(() => {
+        const myVideo = document.getElementById('Vid1');
+        if (myVideo) {
+            // We tell it to play
+            const playPromise = myVideo.play();
+
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Autoplay was blocked by the browser.
+          // It's okay, because we added the 'controls'
+                    // so the user can still press play.
+                    console.log('Video autoplay was blocked.');
+                });
+            }
+        }
+    }, 300);
+    /* --- End of new video code --- */
+
     // --- 1. LENIS SMOOTH SCROLL SETUP ---
     const lenis = new Lenis();
 // ...
@@ -193,14 +213,14 @@ scene.add(mesh);
 document.addEventListener('DOMContentLoaded', () => {
     // --- Clue Data ---
     const newClues = {
-        '1': "I'm the 1st letter of a plant with petals. (F)",
-        '2': "I'm the 2nd letter of the color 'yellow'. (L)",
-        '3': "I'm the 1st letter of an animal that hoots at night. (O)",
-        '4': "I'm the 1st letter of a 7-day period. (W)",
-        '5': "I'm the 2nd letter of 'green'. (E)",
-        '6': "I'm the 1st letter of a color in the rainbow. (R)"
+        '1': "I'm the 1st letter of the place my hands naturally find when I hug you. (B)",
+        '2': "I'm the 1st letter of the sound you make when my hand slides down your waist  and finally lands where you want it. (U)",
+        '3': "I'm the 1st letter of what your smile turns 'ME' into every single time. (M)",
+        '4': "I'm the 1st letter of the part of you that distracts me every time you walk away. (B)",
+        '5': "I'm the 3rd letter in the third word of the sentence - I LOVE YOU. (U)",
+        '6': "I'm the 1st letter of what I turn into when we're alone and you're in the mood. (M)"
     };
-    const FINAL_CODE = "FLOWER";
+    const FINAL_CODE = "BUMBUM";
 
     // --- DOM Elements (Quest 1) ---
     const quest1Wrapper = document.getElementById('quest-1-wrapper');

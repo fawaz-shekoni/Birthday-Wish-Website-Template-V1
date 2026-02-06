@@ -60,18 +60,6 @@ body {
   font-size: 25px;
 }
 
-#clueText {
-    /* Use the decorative font 'jcap' for a fun, bold look */
-    font-family: 'Fragmentcore', cursive;
-    
-    /* OR, if you want it very clean and easy to read: */
-    /* font-family: 'Fragmentcore', sans-serif; */
-    
-    font-size: 28px; /* Make the text slightly larger */
-    line-height: 1.4; /* Make the text easier to read */
-    color: #4c1d95; /* Deep Purple to make it stand out */
-}
-
 
 /*
   WHY THIS WORKS:
@@ -84,6 +72,19 @@ body {
      (style="font-family: 'Inter', sans-serif;").
   This is a perfect setup.
 */
+
+#clueText {
+    /* Use the decorative font 'jcap' for a fun, bold look */
+    font-family: 'Fragmentcore', cursive;
+    
+    /* OR, if you want it very clean and easy to read: */
+    /* font-family: 'Fragmentcore', sans-serif; */
+    
+    font-size: 28px; /* Make the text slightly larger */
+    line-height: 1.4; /* Make the text easier to read */
+    color: #4c1d95; /* Deep Purple to make it stand out */
+}
+
 
 
 /* --- Styles for Quest 1 (Puzzle) --- */
